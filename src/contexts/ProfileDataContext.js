@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { followHelper, unfollowHelper } from "../utils/utils";
-
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
 
@@ -50,6 +49,12 @@ export const ProfileDataProvider = ({ children }) => {
         ...prevState,
         pageProfile: {
             results: prevState.pageProfile.results.map((profile) => unfollowHelper(profile,clickedProfile))
+        },
+        popularProfiles: {
+            ...prevState.popularProfiles,
+            results: prevState.popularProfiles.results.map((profile) =>
+              unfollowHelper(profile, clickedProfile)
+            ),
         }
     }))
         
