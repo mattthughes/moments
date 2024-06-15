@@ -15,6 +15,7 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { fetchMoreData } from "../../utils/utils";
 
+
 import Asset from "../../components/Asset";
 
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -38,7 +39,6 @@ function PostPage() {
         setPost({ results: [post] });
         setComments(comments);
       } catch (err) {
-        console.log(err);
       }
     };
 
